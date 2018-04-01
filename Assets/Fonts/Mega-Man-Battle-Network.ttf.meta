@@ -1,0 +1,23 @@
+fileFormatVersion: 2
+guid: 5f9c261f8a6abbd4eaf1f3494cf039cd
+timeCreated: 1522283291
+licenseType: Free
+TrueTypeFontImporter:
+  externalObjects: {}
+  serializedVersion: 4
+  fontSize: 16
+  forceTextureCase: -2
+  characterSpacing: 0
+  characterPadding: 1
+  includeFontData: 1
+  fontName: Mega Man Battle Network
+  fontNames:
+  - Mega Man Battle Network
+  fallbackFontReferences: []
+  customCharacters: 
+  fontRenderingMode: 0
+  ascentCalculationMode: 1
+  useLegacyBoundsCalculation: 0
+  userData: 
+  assetBundleName: 
+  assetBundleVariant: 
