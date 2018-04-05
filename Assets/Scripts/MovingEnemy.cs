@@ -7,14 +7,15 @@ public class MovingEnemy : MonoBehaviour {
     public float speed = 2;
     //Direction of Movement
     Vector2 dir = Vector2.right;
-    
+    //Damage made by enemy
     public float damage;
-
+    //Score when killed
     public int scoreValue = 150;
+    //Link to scorekeeper object
     private ScoreKeeper scoreKeeper;
-
+    //Audio when damaged
     public AudioClip enemyHit;
-
+    //Amount of health for this enemy
     public float health = 150f;
 
     void Start()
@@ -22,6 +23,7 @@ public class MovingEnemy : MonoBehaviour {
         scoreKeeper = GameObject.Find("Score").GetComponent<ScoreKeeper>();
     }
 
+    //Impressing speed when moving
     void FixedUpdate()
     {
         //Speed to move
@@ -84,7 +86,7 @@ public class MovingEnemy : MonoBehaviour {
         scoreKeeper.Score(scoreValue);
         
     }
-
+    //Retrieve damage attribute
     public float getDamage()
     {
         return damage;

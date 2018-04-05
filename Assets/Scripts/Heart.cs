@@ -3,6 +3,7 @@ using System.Collections.Generic;
 using UnityEngine;
 
 public class Heart : MonoBehaviour {
+    //Class used to identify heart container object
 
 	// Use this for initialization
 	void Start () {

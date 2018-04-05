@@ -3,7 +3,7 @@ using System.Collections.Generic;
 using UnityEngine;
 
 public class EnemyProj : MonoBehaviour {
-    public float damage = 100f;
+    public float damage = 100f; //Damage made by the projectile
 
     // Use this for initialization
     void Start()
@@ -33,13 +33,13 @@ public class EnemyProj : MonoBehaviour {
     {
         //Object for eliminating the player 
         Shredder eliminar = collider.gameObject.GetComponent<Shredder>();
-        //Object for coins in the game
+        
 
 
-        //If player collides with a Shredder trigger
+        //If projectile collides with a Shredder trigger
         if (eliminar)
         {
-            //The scene now is Lose
+            //Projectile is destroyed
             Hit();
         }
     }
@@ -49,6 +49,7 @@ public class EnemyProj : MonoBehaviour {
         Projectile proj = collider.gameObject.GetComponent<Projectile>();
         MovingEnemy movEne = collider.gameObject.GetComponent<MovingEnemy>();
 
+        //If the projectile collides with another projectile, destroy it
         if (proj)
         {
             Hit();

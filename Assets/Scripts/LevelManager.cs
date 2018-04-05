@@ -10,13 +10,13 @@ public class LevelManager : MonoBehaviour {
         //	Application.LoadLevel (name);    -- This method was deprecated a long time ago
         SceneManager.LoadScene(name);
     }
-
+    //When pressing Quit, end application
     public void QuitRequest()
     {
         Debug.Log("Quit requested");
         Application.Quit();
     }
-
+    //Reset score when reaching start scene
     void Update()
     {
         if (SceneManager.GetActiveScene().name == "Start")

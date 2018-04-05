@@ -7,21 +7,26 @@ public class ShootEnemy : MonoBehaviour {
     public float speed = 2;
     //Direction of Movement
     Vector2 dir = Vector2.right;
-
+    //Damage made by the enemy
     public float damage;
-
+    //Score when killed
     public int scoreValue = 150;
+    //Link to scoreKeeper object
     private ScoreKeeper scoreKeeper;
-
+    //Sound played when hit
     public AudioClip enemyHit;
-
+    //Health of the enemy
     public float health = 150f;
+
+    //Here we link the projectile object and its properties like speed, rigidBody
     public GameObject projectile;
     public float projectileSpeed;
     public float shotsPerSeconds = 0.5f;
     private Rigidbody2D rgb;
 
+    //Position of projectile appearance
     private Vector3 offset = new Vector3(1, 0.25f, 0);
+    //Sound when shooting
     public AudioClip fireSound;
 
 
@@ -92,7 +97,7 @@ public class ShootEnemy : MonoBehaviour {
         projectileSpeed = projectileSpeed * -1;
         offset = offset * -1;
     }
-
+    //We disappear this object
     void Die()
     {
         Destroy(gameObject);
@@ -100,7 +105,7 @@ public class ShootEnemy : MonoBehaviour {
         scoreKeeper.Score(scoreValue);
 
     }
-
+    //Retrieve damage property
     public float getDamage()
     {
         return damage;
@@ -108,8 +113,8 @@ public class ShootEnemy : MonoBehaviour {
     
     void Fire()
     {
-        //	We instantiate the laser bean and give it a positive velocity in the y axis.  We offset the
-        //	beam's position 1 unit above our ship, because we do not want an instant collision between
+        //	We instantiate the laser bean and give it a positive velocity in the x axis.  We offset the
+        //	beam's position 1 unit next our object, because we do not want an instant collision between
         //	them.
         //Vector3 offset = new Vector3(1, 0, 0);
         //GameObject beam = Instantiate(projectile, transform.position + offset, Quaternion.identity) as GameObject;

@@ -9,7 +9,7 @@ public class Mario : MonoBehaviour {
     public float yJumpForce = 300f; //JumForce given when jumping
 
     private bool isjumpling = false; 
-    private Rigidbody2D rb;
+    private Rigidbody2D rb; //rigidbody of 
     private Animator anim;
     private Vector2 jumpforce;
     private bool movingRight = true;
@@ -20,24 +20,22 @@ public class Mario : MonoBehaviour {
 
     public AudioClip coin; //Music when colliding when coins
     public AudioClip jump; //Music when jumping
-    public AudioClip fireSound;
+    public AudioClip fireSound; //Sound when firing
     public AudioClip hit; //SOund when receiving damage
-    public AudioClip heart;
+    public AudioClip heart;//Sound when getting a heart container
     
-
     public GameObject projectile;   //	The object we use to instantiate a laser beam
     public float projectileSpeed;   //	The speed of our laser beam
     public float firingRate = 0.2f; //	How fast we can instantiate our laser beam
 
     private Rigidbody2D rgb;        //	A linkt to our beam rigid body
-
-
+    
     private int coinCount;//Coincount so when we reach it, the game ends
   
-    private Vector3 offset = new Vector3(0.25f, 0, 0);
+    private Vector3 offset = new Vector3(0.25f, 0, 0); //Position of the projectile to appear
 
-    private HealthKeeper healthKeeper;
-    private ScoreKeeper scoreKeeper;
+    private HealthKeeper healthKeeper; //Link to the health keeper for showing health
+    private ScoreKeeper scoreKeeper; //Link to the score keeper for showing score
 
 
     // Use this for initialization
@@ -97,7 +95,7 @@ public class Mario : MonoBehaviour {
                 }
             }
         }
-        else
+        else 
         {
             isjumpling = false;
         }
@@ -111,6 +109,7 @@ public class Mario : MonoBehaviour {
             movingRight = true;
             Flip();
         }
+        //If player press vertical arrow, the animation of ducking is played
         if (Input.GetButtonDown("Vertical"))
         {
             anim.SetBool("isDucking", true);
@@ -120,7 +119,7 @@ public class Mario : MonoBehaviour {
         {
             anim.SetBool("isDucking", false);
         }
-
+        //When pressing the Fire1 button (control left), animation of shooting is played and method fire is called
         if (Input.GetButtonDown("Fire1"))
         {
             //InvokeRepeating("Fire", 0.000001f, firingRate);
@@ -128,12 +127,13 @@ public class Mario : MonoBehaviour {
             Fire();
             
         }
+        //When releasing the button the animation stops
         if (Input.GetButtonUp("Fire1"))
         {
             anim.SetBool("isShooting", false);
         }
 
-        //	If the user stops pressing the space bar, we cancel the invoke to the Fire method.
+        
 
 
 
@@ -192,10 +192,12 @@ public class Mario : MonoBehaviour {
                     levelManager.LoadLevel("Win");
                 }
             }*/
+            //When touching the end door, change level
         } else if (door)
         {
             SceneManager.LoadScene(SceneManager.GetActiveScene().buildIndex + 1);
         }
+        //When touching the heart container, restore health
         else if (corazon)
         {
             health = 300f;
@@ -222,6 +224,7 @@ public class Mario : MonoBehaviour {
                 Die();
             }
         }*/
+        //If the player touches an enemy, he receives damage
         if (movEnemy)
         {
             AudioSource.PlayClipAtPoint(hit, transform.position);
@@ -233,11 +236,12 @@ public class Mario : MonoBehaviour {
                 Die();
             }
         }
+        //Also receives damage when touching a moving enemy
         else if (enemyproj)
         {
             health -= enemyproj.getDamage();
             AudioSource.PlayClipAtPoint(hit, transform.position);
-            enemyproj.Hit();      // The missile is destroyed upon collision with our ship.
+            enemyproj.Hit();      // The missile is destroyed upon collision with our object.
 
             if (health <= 0)
             {
@@ -275,8 +279,8 @@ public class Mario : MonoBehaviour {
 
     void Fire()
     {
-        //	We instantiate the laser bean and give it a positive velocity in the y axis.  We offset the
-        //	beam's position 1 unit above our ship, because we do not want an instant collision between
+        //	We instantiate the laser bean and give it a positive velocity in the x axis.  We offset the
+        //	beam's position 1 unit next our object, because we do not want an instant collision between
         //	them.
         //Vector3 offset = new Vector3(1, 0, 0);
         //GameObject beam = Instantiate(projectile, transform.position + offset, Quaternion.identity) as GameObject;

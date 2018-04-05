@@ -23,8 +23,8 @@ public class ScoreKeeper : MonoBehaviour {
 
     public void Score( int points)
     {
-        score += points;
-        scoreText.text = "Score:"+score.ToString();
+        score += points; //Increase score
+        scoreText.text = "Score:"+score.ToString();//Update score increased
         Debug.Log(score);
     }
 
@@ -33,7 +33,7 @@ public class ScoreKeeper : MonoBehaviour {
         score = 0;
         // scoreText.text = score.ToString ();
     }
-
+    //Retrieve score property
     public static int getScore()
     {
         return score;

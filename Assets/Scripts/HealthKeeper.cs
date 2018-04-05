@@ -4,9 +4,9 @@ using UnityEngine;
 using UnityEngine.UI;
 
 public class HealthKeeper : MonoBehaviour {
-    public static float health;
-    private Text healthText;
-    public Mario player;
+    public static float health; 
+    private Text healthText; //Text component to show health
+    public Mario player; //Link to our player object
 
     // Use this for initialization
     void Start () {
@@ -22,6 +22,7 @@ public class HealthKeeper : MonoBehaviour {
         healthText.text = "Health:" + health.ToString();
     }
 
+    //Modify health of the player when receiving damage
     public void Damages(float dam)
     {
         health -= dam;

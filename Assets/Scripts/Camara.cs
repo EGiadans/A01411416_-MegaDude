@@ -4,18 +4,10 @@ using UnityEngine;
 
 
 public class Camara : MonoBehaviour {
-    public GameObject player;
+    public GameObject player; 
     public Vector3 offset;
-    //public Vector3 farLeft;  // End of screen Left
-    //public Vector3 farRight;  //End of Screen Right
-    //public float speed = 0.1F;
 
-
-    // Use this for initialization
-
-
-    // Update is called once per frame
-    
+    //We make the camera to follow the player
     void Update () {
         transform.position = new Vector3(player.transform.position.x + offset.x, player.transform.position.y +offset.y, offset.z);
         //transform.position = new Vector3(player.transform.position.x, player.transform.position.y + offset.y, offset.z);

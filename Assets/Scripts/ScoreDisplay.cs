@@ -8,8 +8,8 @@ public class ScoreDisplay : MonoBehaviour {
     // Use this for initialization
     void Start()
     {
-        Text scoreText = GetComponent<Text>();
-        scoreText.text = ScoreKeeper.score.ToString();
+        Text scoreText = GetComponent<Text>(); //Obtain the Text label from Unity
+        scoreText.text = ScoreKeeper.score.ToString();//Show score as a text
         //ScoreKeeper.Reset();
     }
 

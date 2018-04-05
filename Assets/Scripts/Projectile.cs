@@ -4,7 +4,8 @@ using UnityEngine;
 
 public class Projectile : MonoBehaviour
 {
-    public float damage = 100f;
+    //Object for the player shooting
+    public float damage = 100f; //Damage Made by the projectile
 
     // Use this for initialization
     void Start()
@@ -37,21 +38,23 @@ public class Projectile : MonoBehaviour
         //Object for coins in the game
 
 
-        //If player collides with a Shredder trigger
+        //If projectile collides with a Shredder trigger
         if (eliminar)
         {
-            //The scene now is Lose
+            //The projectile is gone
             Hit();
         }
     }
 
     void OnCollisionEnter2D(Collision2D collider)
     {
+        //If the projectile collides with another projectile
         Projectile proj = collider.gameObject.GetComponent<Projectile>();
         //MovingEnemy movEne = collider.gameObject.GetComponent<MovingEnemy>();
 
         if (proj)
         {
+            //Destroy this 
             Hit();
 
         }
